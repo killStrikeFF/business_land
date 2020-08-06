@@ -1,0 +1,967 @@
+//<МИКСИНЫ>===============================================================================================
+@import "mixins.scss";
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+@import url(https://fonts.googleapis.com/css?family=Lato:300,regular,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular);
+
+@font-face {
+  font-family: 'BrandonBold';
+  src: url('../fonts/brandon_bld.eot');
+  src: local('☺'), url('../fonts/brandon_bld.woff') format('woff'), url('../fonts/brandon_bld.ttf') format('truetype'), url('../fonts/brandon_bld.svg') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GothamProBlack';
+  src: url('../fonts/GothamProBlack.eot');
+  src: local('☺'), url('../fonts/GothamProBlack.woff') format('woff'), url('../fonts/GothamProBlack.ttf') format('truetype'), url('../fonts/GothamProBlack.svg') format('svg');
+  font-weight: 900;
+  font-style: normal;
+}
+
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: "Open Sans";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth: 320px;
+$mw: 1170;
+$md1: $mw+12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null.scss";
+
+body {
+  color: #000;
+  font-size: 14px;
+
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+  max-width: $mw + px;
+  margin: 0 auto;
+  width: 100%;
+
+  @media (max-width: $md1+px) {
+    max-width: 970px;
+  }
+
+  @media (max-width: $md2+px) {
+    max-width: 750px;
+  }
+
+  @media (max-width: $md3+px) {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms.scss";
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "../../js/fancybox/jquery.fancybox.scss";
+//@import "datepicker.scss";
+//@import "fontawesome.scss";
+//@import "popover.min.scss";
+//@import "baguetteBox.scss";
+//@import "pagging.scss";
+//@import "icons.scss";
+@import "header.scss";
+@import "footer.scss";
+@import "home.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+
+.forms-content {
+  background-color: #709dca;
+}
+
+.forms {
+
+  &__body {
+    @include flexbox();
+    align-items: center;
+    flex-direction: column;
+    padding: 110px 41px 350px 41px;
+
+    @media (max-width:$md4+px) {
+      padding: 20px 41px 200px 41px;
+    }
+  }
+
+  &__title {
+    min-width: 0;
+    // max-width: 720px;
+    color: #ffffff;
+    text-align: center;
+    margin: 0px 0px 30px 0px;
+  }
+
+  &__title-head {
+    font-family: 'GothamProBlack';
+    font-size: 35px;
+    text-transform: uppercase;
+    line-height: 1.2;
+
+    @media (max-width:$md3+px) {
+      font-size: 20px;
+    }
+  }
+
+  &__title-subtitle {
+    font-size: 16px;
+    font-weight: 300;
+
+    @media (max-width:$md3+px) {
+      font-size: 14px;
+    }
+  }
+
+}
+
+.form {
+  @include flexbox();
+  align-items: center;
+
+  @media (max-width:$md2+px) {
+    flex-direction: column;
+  }
+
+  &__item {
+    margin: 0px 5px;
+    // max-width: 281px;
+
+    @media (min-width:$md1+px) {
+      max-width: 281px;
+    }
+
+    @media (max-width:$md2+px) {
+      max-width: 400px;
+      margin: 10px 0px 0px 0px;
+    }
+  }
+
+  &__name {
+    background: url(../img/icons/user.svg) 15px 50%/14px 14px no-repeat, #ffffff;
+  }
+
+  &__email {
+    background: url(../img/icons/email.svg) 15px 50%/14px 14px no-repeat, #ffffff;
+  }
+
+  &__phone {
+    background: url(../img/icons/phone.svg) 15px 50%/14px 14px no-repeat, #ffffff;
+  }
+
+  &__btn {
+    padding: 0px 40px;
+    width: 205px;
+  }
+}
+
+.mainslider {
+  min-width: 0;
+  margin-top: -300px;
+  position: relative;
+
+  @media (max-width:$md4+px) {
+    margin: -155px 0px 0px 0px;
+  }
+}
+
+/* Слайдер */
+.slick-slider {
+  z-index: 0;
+
+  img {
+    max-width: 100%;
+  }
+
+  &:hover {
+
+    .slick-arrow.slick-prev,
+    .slick-arrow.slick-next {
+      opacity: 1;
+    }
+  }
+}
+
+/* Лента слайдов */
+.slick-track {
+  @include flexbox();
+}
+
+/* Слайд */
+.slick-slide {
+  @include flexbox();
+  align-items: center;
+  justify-content: center;
+}
+
+/* Стрелка */
+.slick-arrow {
+  opacity: 0;
+  width: 8px;
+  height: 14px;
+  font-size: 0;
+  transition: 0.3s ease-in;
+}
+
+/* Стрелка влево */
+.slick-arrow.slick-prev {
+  background: url(/img/icons/left-arrow.png) 0 50% no-repeat;
+  position: absolute;
+  left: 29%;
+  top: 36%;
+  z-index: 2;
+}
+
+/* Стрелка вправо */
+.slick-arrow.slick-next {
+  background: url(/img/icons/right-arrow.png) 0 50% no-repeat;
+  position: absolute;
+  right: 29%;
+  top: 36%;
+  z-index: 2;
+}
+
+/* Точки (булиты) */
+.slick-dots {
+  @include flexbox();
+  justify-content: space-between;
+  align-items: center;
+  max-width: 60px;
+  margin: 15px auto 0;
+  height: 15px;
+
+}
+
+/* Активная точка */
+.slick-dots li.slick-active {
+  button {
+    border: 2px solid #709dca;
+  }
+}
+
+/* Элемент точки */
+.slick-dots li button {
+  transition: 0.2s ease-in-out;
+  width: 15px;
+  height: 15px;
+  margin: 0 3px;
+  font-size: 0;
+  border-radius: 50%;
+  border: 2px solid #dedfe0;
+  background: transparent;
+}
+
+//====================================================================================================
+
+.services {
+  padding: 120px 0px 80px 0px;
+
+  @media (max-width:$md3+px) {
+    padding: 50px 0px 40px 0px;
+  }
+
+  &__body {}
+
+  &__title {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 95px;
+
+    @media (max-width:$md3+px) {
+      margin: 0 auto 45px;
+    }
+  }
+
+  &__title-head {
+    @extend %main-title;
+  }
+
+  &__title-subtitle {
+    @extend %main-subtitle;
+  }
+
+  &__block {
+    @include flexbox();
+    flex-wrap: wrap;
+  }
+
+  &__block-item {
+    flex: 0 0 50%;
+    padding: 0px 0px 0px 40px;
+    margin: 0px 0px 80px -20px;
+
+    @media (max-width:$md3+px) {
+      padding: 0;
+      margin: 0px 0px 35px 0px;
+      flex: 1 1 100%;
+    }
+  }
+}
+
+.service {
+  @include flexbox();
+
+  &__image {
+    &-img {
+      width: 50px;
+      height: 50px;
+      fill: #729ecb;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        fill: #f6772c;
+      }
+    }
+  }
+
+  &__info {
+    @include flexbox();
+    flex-direction: column;
+    padding: 0px 0px 0px 32px;
+  }
+
+  &__title {
+    font-family: 'Lato';
+    font-weight: 700;
+    font-size: 16px;
+    color: rgb(57, 75, 80);
+    text-transform: uppercase;
+    line-height: 1.375;
+    margin: 0px 0px 10px 0px;
+
+  }
+
+  &__text {
+    font-size: 13px;
+    color: rgb(123, 123, 123);
+    line-height: 1.692;
+  }
+}
+
+//====================================================================================================
+
+.about {
+
+  &__body {
+    @include flexbox();
+  }
+
+  &__column {
+    flex: 0 0 50%;
+
+    &:last-child {
+      padding: 112px 0px 103px 80px;
+      background: #ffc155;
+    }
+
+    @media (max-width:$md2+px) {
+      flex: 1 1 100%;
+
+      &:last-child {
+        padding: 30px;
+        background: #ffc155;
+      }
+
+      &:first-child {
+        display: none;
+      }
+
+    }
+  }
+
+  &__image {
+    height: 100%;
+  }
+
+  &__column-title {
+    font-family: 'GothamProBlack';
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    line-height: 0.733;
+    max-width: 506px;
+    margin: 0px 0px 20px 0px;
+  }
+
+  &__column-text {
+    color: rgb(255, 255, 255);
+    line-height: 1.846;
+    font-size: 13px;
+    max-width: 506px;
+    margin: 0px 0px 30px 0px;
+  }
+
+  &__column-btn {
+    padding: 15px 36px;
+    border: 1px solid #e7ad48;
+    border-radius: 1px;
+  }
+}
+
+//====================================================================================================
+
+.price {
+  background: #e7edf3;
+
+  &__body {
+    padding: 150px 0px;
+
+    @media (max-width:$md2+px) {
+      padding: 50px 0px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin: 0 auto 50px auto;
+  }
+
+  &__title-head {
+    @extend %main-title;
+  }
+
+  &__title-subtitle {
+    @extend %main-subtitle;
+  }
+}
+
+.pack {
+
+  @include flexbox();
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &__column {
+    flex: 0 0 33.333%;
+    padding: 50px 30px;
+    background-color: #fff;
+    @include flexbox();
+    align-items: center;
+    flex-direction: column;
+    transition: 0.3s ease-in-out;
+    border: 1px solid #e2e9f0;
+
+    &:hover {
+      box-shadow: 0px 4px 10px #00000059;
+    }
+
+    @media (max-width:$md3+px) {
+      flex: 0 1 80%;
+      margin: 0px 0px 20px 0px;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    @media (max-width:$md4+px) {
+      flex: 1 1 100%;
+    }
+  }
+
+  &__column-title {
+    font-family: 'Lato';
+    font-size: 25px;
+    font-weight: 400;
+    color: rgb(129, 139, 149);
+    text-transform: uppercase;
+    line-height: 0.88;
+    margin: 0px 0px 30px 0px;
+  }
+
+  &__block-price {
+    position: relative;
+    margin: 0px 0px 40px 0px;
+
+    span {
+      position: absolute;
+      left: 5px;
+      font-size: 30px;
+      color: #ffbb42;
+      font-family: 'Lato';
+      font-weight: 700;
+    }
+  }
+
+  &__block-number {
+    text-align: center;
+    font-family: 'Lato';
+    font-weight: 700;
+    font-size: 60px;
+    color: #ffbb42;
+
+  }
+
+  &__block-month {
+    text-align: center;
+    font-family: 'Lato';
+    font-weight: 300;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: rgb(129, 139, 149);
+  }
+
+  &__column-btn {
+    padding: 16px 20px;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+.packege {
+  width: 100%;
+
+  &__item {
+    border-top: 1px solid #e2e9f0;
+    text-align: center;
+    font-family: 'Lato';
+    font-weight: 400;
+    font-size: 13.5px;
+    width: 100%;
+    color: rgb(181, 187, 193);
+    text-transform: uppercase;
+    line-height: 2.963;
+  }
+}
+
+.blue {
+  background-color: #709dca;
+  padding: 80px 30px;
+}
+
+.w {
+  color: #ffffff;
+}
+
+//====================================================================================================
+
+.works {
+  text-align: center;
+
+  &__body {
+    position: relative;
+    padding: 150px 0px;
+
+    @media (max-width:$md2+px) {
+      padding: 75px 0px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin: 0 auto 50px auto;
+
+    &-head {
+      @extend %main-title;
+    }
+
+    &-subtitle {
+      @extend %main-subtitle;
+    }
+  }
+
+  &__content {
+    @include flexbox();
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 -25px 95px;
+
+    @media (max-width:$md2+px) {
+      margin: 0 0px 95px;
+    }
+
+    @media (max-width:$md3+px) {
+      flex-direction: column;
+      margin: 0 0px 25px;
+    }
+
+
+    &:nth-child(2) {}
+  }
+
+  &__column {
+    flex: 0 0 25%;
+    padding: 0 25px;
+
+    @media (max-width:$md2+px) {
+      padding: 0 5px;
+    }
+
+    @media (max-width:$md3+px) {
+      margin: 0px 0px 25px 0px;
+
+      &:last-child {
+        margin: 0px 0px;
+      }
+    }
+
+  }
+
+  &__column-image {
+    display: block;
+    position: relative;
+    border-radius: 50%;
+    transition: 0.25s ease-in;
+    text-align: center;
+    height: 186px;
+    width: 186px;
+    margin: 0px auto 10px auto;
+    padding: 40px 0px 0px 0px;
+    border: 1px solid #fff;
+
+    @media (max-width:$md2+px) {
+      height: 140px;
+      width: 140px;
+    }
+
+    &--z {
+      animation: animateStep 1s linear infinite alternate 0s;
+    }
+
+    &--o {
+      animation: animateStep 1s linear infinite alternate 0.25s;
+    }
+
+    &--s {
+      animation: animateStep 1s linear infinite alternate 0.5s;
+    }
+
+    &--t {
+      animation: animateStep 1s linear infinite alternate 0.75s;
+    }
+  }
+
+  &__column-title {
+    font-family: 'Lato';
+    font-weight: 700;
+    color: rgb(57, 75, 80);
+    text-transform: uppercase;
+    line-height: 1.1;
+    text-align: center;
+    font-size: 20px;
+    margin: 0px 0px 18px 0px;
+  }
+
+  &__column-text {
+    color: rgb(123, 123, 123);
+    line-height: 1.692;
+    text-align: center;
+    font-size: 13px;
+
+    @media (max-width:$md3+px) {
+      max-width: 400px;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+
+    @media (max-width:$md2+px) {
+      display: none;
+    }
+  }
+
+  &__btn {
+    margin: 0 auto;
+    padding: 17px 30px;
+  }
+}
+
+.f {
+  left: 215px;
+  top: 260px;
+
+  @media (max-width:$md1+px) {
+    left: 165px;
+    top: 230px;
+  }
+}
+
+.s {
+  top: 390px;
+
+  left: 520px;
+
+  @media (max-width:$md1+px) {
+    top: 405px;
+    left: 420px;
+  }
+}
+
+.t {
+  top: 260px;
+  right: 215px;
+
+  @media (max-width:$md1+px) {
+    top: 230px;
+    right: 165px;
+  }
+}
+
+
+@keyframes animateStep {
+  0% {
+    border: 2px solid #fff;
+  }
+
+  100% {
+    border: 2px solid #bcd7f1;
+  }
+}
+
+
+//====================================================================================================
+
+.clients {
+  background: #ffc155;
+
+  &__body {
+    padding: 150px 0px;
+
+    @media (max-width:$md2+px) {
+      padding: 50px 0px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin: 0 auto 60px;
+  }
+
+  &__title-head {
+    @extend %main-title;
+    color: #fff;
+  }
+
+  &__title-subtitle {
+    @extend %main-subtitle;
+    color: #fff;
+  }
+
+  &__content {
+    @include flexbox();
+    flex-wrap: wrap;
+  }
+
+  &__column {
+    flex: 0 0 50%;
+    background: #fff;
+    border-radius: 2px;
+    padding: 43px 29px 52px;
+    @include flexbox();
+    align-items: start;
+    margin: 0px 0px 20px 0px;
+    border-right: 9px solid #ffc155;
+    border-left: 9px solid #ffc155;
+
+    @media (max-width:$md2+px) {
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    @media (max-width:$md3+px) {
+      flex: 1 1 100%;
+    }
+
+    &-image {
+      margin: 0px 0px 15px 0px;
+    }
+
+  }
+
+  &__column-text {
+    padding: 0px 0px 0px 30px;
+
+    @media (max-width:$md2+px) {
+      padding: 0px 0px 0px 0px;
+    }
+  }
+
+  &__text-content {
+    position: relative;
+    font-size: 13px;
+    color: rgb(123, 123, 123);
+    line-height: 1.692;
+    margin: 0px 0px 30px 0px;
+  }
+
+  &__text-name {
+    color: rgb(246, 119, 44);
+    text-transform: uppercase;
+    line-height: 1.571;
+    font-size: 14px;
+    font-family: 'Lato';
+    font-weight: 400;
+
+    span {
+      color: #99a9ae;
+    }
+  }
+}
+
+//====================================================================================================
+
+.contacts {
+
+  &__body {
+    padding: 154px 22px 50px;
+    @include flexbox();
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width:$md2+px) {
+      padding: 54px 22px 50px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin: 0px 0px 40px 0px;
+  }
+
+  &__title-head {
+    @extend %main-title;
+  }
+
+  &__title-subtitle {
+    @extend %main-subtitle;
+  }
+
+  &__form {
+    padding: 0px 115px;
+    margin: 0px 0px 50px 0px;
+  }
+
+  &__form-form {}
+
+  &__form-name {
+    width: 308px !important;
+    border: 1px solid #aeaeae;
+  }
+
+  &__form-email {
+    width: 308px !important;
+    border: 1px solid #aeaeae;
+  }
+
+  &__form-btn {
+    max-width: 218px;
+  }
+
+  &__map {}
+
+  &__navigation {
+    width: 100%;
+    border-top: 1px solid #e3e7ec;
+    padding: 70px 0px 30px;
+  }
+
+  &__navigation-block {}
+
+  &__navigation-list {
+    justify-content: center;
+  }
+
+  &__navigation-link {
+    color: rgb(57, 75, 80);
+  }
+
+  &__phone {
+    color: rgb(57, 75, 80);
+    line-height: 1.072;
+    font-family: 'Lato';
+    font-weight: 400;
+    @include flexbox();
+    align-items: center;
+    font-size: 22.383px;
+    margin: 0px 0px 20px 0px;
+
+    img {
+      width: 19px;
+      margin: 0px 5px 0px 0px;
+    }
+  }
+
+  &__social {}
+
+  &__social-list {
+    @include flexbox();
+    align-items: center;
+    justify-content: center;
+
+    li {
+      margin: 0 7.5px;
+    }
+  }
+
+  &__social-link {
+    font-size: 20px;
+    color: yellow;
+
+    &--icon {
+      width: 15px;
+      height: 15px;
+      fill: #709dca;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        fill: #ffc561;
+      }
+    }
+  }
+}
+
+
+//====================================================================================================
+
+
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
